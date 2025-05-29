@@ -39,9 +39,22 @@ class Character {
         return healthRegeneration;
     }
 
+    public void regenerateHealth() {
+        health += healthRegeneration;
+        System.out.println("Вы восстановили " + healthRegeneration + " здоровья.");
+    }
+
     public String getInfo() {
         return "Имя: " + name + ", Здоровье: " + health + ", Урон: " + attackPower +
                 ", Мана: " + mana + ", Регенерация маны: " + manaRegeneration +
                 ", Регенерация здоровья: " + healthRegeneration;
+    }
+    public void takeDamage(int damage) {
+        health -= damage;
+        if (health < 0) health = 0; // Убедимся, что здоровье не меньше 0
+    }
+
+    public void heal(int amount) {
+        health += amount;
     }
 }
